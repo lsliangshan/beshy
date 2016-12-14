@@ -2,6 +2,11 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import router from './routers'
+import VueMaterial from 'vue-material'
+import './config.js'
+
+Vue.use(VueMaterial)
 
 function getFormData (formId) {
   var out = {}
@@ -196,10 +201,17 @@ Vue.directive('getData', {
     }
   }
 })
-
+document.body.addEventListener('touchmove', function (e) {
+  e.preventDefault()
+}, false)
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  router,
+  data: {
+    themes: ['default', 'indigo', 'brown', 'purple', 'orange', 'blue', 'green', 'light-blue', 'teal', 'blue-grey', 'cyan', 'red', 'white', 'grey'],
+    theme: 'red',
+    appName: '表白吧'
+  },
   template: '<App/>',
-  components: { App }
-})
+  components: {App}
+}).$mount('#app')
