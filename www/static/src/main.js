@@ -210,7 +210,13 @@ new Vue({
   data: {
     themes: ['default', 'indigo', 'brown', 'purple', 'orange', 'blue', 'green', 'light-blue', 'teal', 'blue-grey', 'cyan', 'red', 'white', 'grey'],
     theme: 'red',
-    appName: '表白吧'
+    appName: '表白吧',
+    userInfo: {
+      avatar: '../../static/img/avatar-2.jpg',
+      username: '梁山',
+      phonenum: '18311112222'
+    },
+    isLogin: true
   },
   template: '<App/>',
   components: {App}

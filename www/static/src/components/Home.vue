@@ -26,17 +26,86 @@
 
       <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">
         <md-toolbar class="md-large">
-          <div class="md-toolbar-container">
-            <h3 class="md-title">Sidenav content</h3>
+          <md-avatar class="md-large">
+            <img src="../../static/img/avatar.png" :src="userInfo.avatar">
+          </md-avatar>
+          <div class="md-list-text-container ml10">
+            <div v-if="!isLogin">
+              <span>您还未登录</span>
+            </div>
+            <div v-else>
+              <p class="lh2" v-text="userInfo.username"></p>
+              <p class="lh2" v-text="userInfo.phonenum"></p>
+            </div>
           </div>
+          <router-link to="/login">
+            <md-button class="md-icon-button WHITE" v-if="isLogin">
+              <md-icon>directions_run</md-icon>
+            </md-button>
+          </router-link>
         </md-toolbar>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate esse necessitatibus beatae nobis, deserunt ut est fugit, tempora deleniti, eligendi commodi doloribus. Nemo, assumenda possimus, impedit inventore perferendis iusto!</p>
+        <md-list>
+          <md-list-item>
+            <md-icon>whatshot</md-icon>
+            <span>News</span>
+
+            <md-list-expand>
+              <md-list>
+                <md-list-item class="md-inset">World</md-list-item>
+                <md-list-item class="md-inset">Americas</md-list-item>
+                <md-list-item class="md-inset">Europe</md-list-item>
+              </md-list>
+            </md-list-expand>
+          </md-list-item>
+
+          <md-list-item>
+            <md-icon>videogame_asset</md-icon>
+            <span>Games</span>
+
+            <md-list-expand>
+              <md-list>
+                <md-list-item class="md-inset">Console</md-list-item>
+                <md-list-item class="md-inset">PC</md-list-item>
+                <md-list-item class="md-inset">Phone</md-list-item>
+              </md-list>
+            </md-list-expand>
+          </md-list-item>
+
+          <md-list-item>
+            <md-icon>video_library</md-icon>
+            <span>Video</span>
+
+            <md-list-expand>
+              <md-list>
+                <md-list-item class="md-inset">Humor</md-list-item>
+                <md-list-item class="md-inset">Music</md-list-item>
+                <md-list-item class="md-inset">Movies</md-list-item>
+                <md-list-item class="md-inset">TV Shows</md-list-item>
+              </md-list>
+            </md-list-expand>
+          </md-list-item>
+
+          <md-list-item>
+            <md-icon>shopping_basket</md-icon>
+            <span>Shop</span>
+          </md-list-item>
+
+        </md-list>
       </md-sidenav>
     </div>
   </div>
 </template>
 <style scoped lang="scss">
+  .ml10 {
+    margin-left: 10px;
+  }
+  .lh2 {
+    line-height: 2;
+  }
+  .WHITE {
+    color: #fff;
+  }
   .container {
     width: 100%;
     height: 100%;
@@ -63,6 +132,7 @@
       }
     }
   }
+
 </style>
 <script>
   import 'vue-material/dist/vue-material.css'
@@ -72,7 +142,9 @@
       return {
         themes: this.$root.themes,
         appName: this.$root.appName,
-        theme: this.$root.theme
+        theme: this.$root.theme,
+        userInfo: this.$root.userInfo,
+        isLogin: this.$root.isLogin
       }
     },
     components: {
