@@ -42,7 +42,7 @@ export default {
     /*路由配置*/
     url_route_on: false, //是否开启自定义路由功能
     url_resource_on: true,  //是否监听静态资源类请求
-    url_resource_reg: /^(Static\/|favicon\.ico|robot\.txt)/, //判断是否是静态资源的正则
+    url_resource_reg: /^(static\/|favicon\.ico|robot\.txt)/, //判断是否是静态资源的正则
     url_callback_name: 'jsonpcallback', //jsonp格式的callback名字
 
     /*项目其他设置*/
