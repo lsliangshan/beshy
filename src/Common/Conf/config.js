@@ -8,7 +8,7 @@ export default {
     app_title: 'thinknode',
     app_keywords: 'thinknode',
     app_description: 'thinknode,node.js mvc framework',
-    app_port: 3000,
+    app_port: 3001,
     app_group_list: ['Admin', 'Home'], //分组列表
     default_group: 'Home',//默认分组
 
